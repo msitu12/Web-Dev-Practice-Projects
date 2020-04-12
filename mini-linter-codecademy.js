@@ -96,8 +96,8 @@ storyWords.forEach(word => {
 // Challenge:
 
  const logOutput = () => {
-   console.log('This is the total word count of the original paragraph: '+ storyWords.length ".");
-   console.log('This is the  word count after removing unecessary words: '+ betterWords.length ".");
+   console.log('This is the total word count of the original paragraph: '+ storyWords.length + '.');
+   console.log('This is the  word count after removing unecessary words: '+ betterWords.length + '.');
    console.log('This is the  number of times each overused word appears: '+ 'Really: ' + reallyCount + ", " + 'Very: ' + veryCount + ", " + 'Basically: ' + basicallyCount + ".");
   //  I may have done this wrong. Would have to change this to get a count for each individually
   console.log('This is the sentence count for the paragraph: '+ sentenceCounter + ".")
@@ -110,10 +110,7 @@ logOutput()
 // console.log(betterWords.join(" "));
 
 
-
-
 // More ideas to play with
-
 
 // For the overused words, remove it every other time it appears.
 //
