@@ -122,7 +122,10 @@ while (arrayOf30.length < 30) {
 // // strand2.compareDNA(strand3);
 //
 // // willLikelySurvive method
-// console.log(strand2);
-// const strand2SurvivalChances = strand2.willLikelySurvive();
-// console.log(`Chance of survival (true = high & false = low): ${strand2SurvivalChances}`);
-// // never seen this go false...
+// console.log(strand3);
+// const strand3SurvivalChances = strand3.willLikelySurvive();
+// console.log(`Chance of survival (true = high & false = low): ${strand3SurvivalChances}`);
+
+const strand4 = pAequorFactory(444, ['A', 'A', 'T', 'T', 'A', 'T', 'A', 'A', 'T', 'T', 'A', 'T', 'A', 'G', 'C']);
+const strand4SurvivalChances = strand4.willLikelySurvive();
+console.log(`I expect this result to be false: ${strand4SurvivalChances}`);
