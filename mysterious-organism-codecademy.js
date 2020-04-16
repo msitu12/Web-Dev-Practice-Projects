@@ -1,5 +1,6 @@
 // Mysterious Organinism Project Codecademy
 // Date: April 14, 2020
+// Time to complete: ~6 hours
 // Author: fredlin
 
 
@@ -36,26 +37,39 @@ const pAequorFactory = (specNum, dnaStrand) => {
       // there must be a better way.....
       const randomIndex = Math.floor(Math.random() * this.dna.length);
       const dnaBase = this.dna[randomIndex];
-      if (dnaBase === 'A') { // could use switch here or adapt to all returnRand Base helper
-        let newDnaBaseArray = ['T', 'C', 'G'];
-        let newRandomIndex = Math.floor(Math.random() * 3);   // randomly select an index in the shortened dna array
-        this.dna[randomIndex] = newDnaBaseArray[newRandomIndex]; // change base in object strand to a random base of the 3 remaining types
 
-      } else if (dnaBase === 'T') {
-        let newDnaBaseArray = ['A', 'C', 'G'];
-        let newRandomIndex = Math.floor(Math.random() * 3);
-        this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
+      let randomDNABase = returnRandBase();
 
-      } else if (dnaBase === 'C') {
-        let newDnaBaseArray = ['A', 'T', 'G'];
-        let newRandomIndex = Math.floor(Math.random() * 3);
-        this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
+      do {
+        if (dnaBase === randomDNABase) {
+          randomDNABase = returnRandBase();
+        } else {
+          this.dna[randomIndex] = randomDNABase;
+        }
+      } while (dnaBase === randomDNABase);
 
-      } else if (dnaBase === 'G') {
-        let newDnaBaseArray = ['A', 'T', 'C'];
-        let newRandomIndex = Math.floor(Math.random() * 3);
-        this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
-      }
+
+      // if (dnaBase === 'A') { // could use switch here or adapt to all returnRand Base helper
+      //
+      //   let newDnaBaseArray = ['T', 'C', 'G'];
+      //   let newRandomIndex = Math.floor(Math.random() * 3);   // randomly select an index in the shortened dna array
+      //   this.dna[randomIndex] = newDnaBaseArray[newRandomIndex]; // change base in object strand to a random base of the 3 remaining types
+      //
+      // } else if (dnaBase === 'T') {
+      //   let newDnaBaseArray = ['A', 'C', 'G'];
+      //   let newRandomIndex = Math.floor(Math.random() * 3);
+      //   this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
+      //
+      // } else if (dnaBase === 'C') {
+      //   let newDnaBaseArray = ['A', 'T', 'G'];
+      //   let newRandomIndex = Math.floor(Math.random() * 3);
+      //   this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
+      //
+      // } else if (dnaBase === 'G') {
+      //   let newDnaBaseArray = ['A', 'T', 'C'];
+      //   let newRandomIndex = Math.floor(Math.random() * 3);
+      //   this.dna[randomIndex] = newDnaBaseArray[newRandomIndex];
+      // }
 
       return this.dna;
     },
@@ -109,11 +123,11 @@ while (arrayOf30.length < 30) {
 // // arrayOf30 test
 // console.log(arrayOf30);
 
-// // mutate method
-// const strand1 = pAequorFactory(111, mockUpStrand());
-// console.log(`strand1 before mutatation: ${strand1.dna}`);
-// strand1.mutate();
-// console.log(`strand1 after mutatation: ${strand1.dna}`);
+// mutate method
+const strand1 = pAequorFactory(111, mockUpStrand());
+console.log(`strand1 before mutation: ${strand1.dna}`);
+strand1.mutate();
+console.log(`strand1 after mutation: ${strand1.dna}`);
 //
 // // compareDNA method
 // const strand2 = pAequorFactory(222, mockUpStrand());
@@ -129,3 +143,12 @@ while (arrayOf30.length < 30) {
 const strand4 = pAequorFactory(444, ['A', 'A', 'T', 'T', 'A', 'T', 'A', 'A', 'T', 'T', 'A', 'T', 'A', 'G', 'C']);
 const strand4SurvivalChances = strand4.willLikelySurvive();
 console.log(`I expect this result to be false: ${strand4SurvivalChances}`);
+
+
+//Additional challenge
+
+// Create a .complementStrand() method to the factory function’s object
+// that returns the complementary DNA strand. The rules are that 'A's match
+// with 'T's and vice versa. Also, 'C's match with 'G's and vice versa.
+// (Check the hint for more details)
+// Use the .compareDNA() to find the two most related instances of pAequor.
